@@ -8,21 +8,21 @@ function MainObject() {// Create a function constructor MainObject and launch it
 
 MainObject.prototype.begin = function () { //Write a method inside the prototype for our MainObject
     this.polyfill();//Write and invoke a method inside the prototype of our MainObject
-    new SearchField();//
-    new Gamburger();
-    new CatalogBanner(document.querySelector('.extraOff'));
-    new FilterCatalog(document.querySelector('.formFilter'));
-    new ProductOptions(document.querySelector('.listOptions'));
-    new Switcher(document.querySelector('.tumbs'));
-    new Bag(document.querySelector('.addToBag'));
-    new GoToItem(document.querySelector('.rowArrivals'));
+    new SearchField();//Sierchfield on the header
+    new Gamburger();//Gamburger menu in the header
+    new CatalogBanner(document.querySelector('.extraOff'));//The lettering in the middle of the second page
+    new FilterCatalog(document.querySelector('.formFilter'));//Filter below the header on the second page
+    new ProductOptions(document.querySelector('.listOptions'));//Comparison on the third page (Size and Color)
+    new Switcher(document.querySelector('.tumbs'));//Switcher on the third page
+    new Bag(document.querySelector('.addToBag'));//Adding on the bag third page
+    new GoToItem(document.querySelector('.rowArrivals'));//Not useful and not ending object
     if (window.localStorage && window.sessionStorage) {
-        this.innerStorage();//write and invoke a method inside the prototype of our MainObject
+        this.innerStorage();//write and invoke a method innerStorage for our localstorage
     }
-    new Shop(document.querySelector('.shoppingBag'));
+    new Shop(document.querySelector('.shoppingBag'));//Main block for our forth page
 };
-//Write a method innerStorage in the prototype of our MainObject for my localstorage
-MainObject.prototype.innerStorage = function () {
+
+MainObject.prototype.innerStorage = function () {//Write a method innerStorage in the prototype of our MainObject for my localstorage
     this.localStorageCommonPrice = (localStorage.goodsPrice) ? localStorage.goodsPrice : '';
     this.localStorageCountItems = (localStorage.goodsCounter) ? localStorage.goodsCounter : 0;
 
@@ -84,9 +84,6 @@ Gamburger.prototype.openMenu = function (e) {
     this.nav.classList.toggle('display');
 };
 // Common rules for my project
-// console.dir(MainObject);
-// console.dir(Element.prototype);
-// console.dir(new CatalogBanner(document.querySelector('.extraOff')));
 
 //Catalog js second page
 function FilterCatalog (filter) {
@@ -98,7 +95,6 @@ function FilterCatalog (filter) {
     this.selectItems = document.querySelectorAll('.selectItem');
     this.options = this.filterForm.querySelectorAll('option');
     this.tabletLabel.addEventListener('click', this.openFilter.bind(this));
-
     this.ww = window.innerWidth;
     if (this.ww > 1024) {
         this.desktopToggle();
@@ -107,7 +103,7 @@ function FilterCatalog (filter) {
     }
 }
 
-function CatalogBanner (offer) {//Constructor for my block with a class extraOff which added a property margin-bottom for a text on the catalog.page (2 page)
+function CatalogBanner (offer) {//Constructor for my block  which added a property margin-bottom for a text on the catalog.page (2 page)
     if (!offer) return;
     this.offer = offer;
     this.itemImg = document.querySelectorAll('.arrivalItem')[0];
@@ -448,3 +444,5 @@ Shop.prototype.totalSum = function () {
     this.totalCost.innerHTML = localStorage.goodsPrice ? ('£ ' + localStorage.goodsPrice) : '£ 0';
 };
 //shopping-bag.js fourth page
+// -------------------------------------------------------------------------------------------
+

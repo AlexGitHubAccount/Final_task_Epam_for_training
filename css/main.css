@@ -1402,11 +1402,6 @@ a.messageAboutChoice {
         left: 0;
     }
 
-    .filter .filterTablet {
-        display: none;
-        /*Hide for this resolution in the section filter*/
-    }
-
     .mobileSelects select {
         display: block;
     }
@@ -1607,6 +1602,7 @@ a.messageAboutChoice {
         width: 33.3%;
     }
 }
+
     @media (max-width: 768px) {
         .leftBanner .overlay {
             top: 10%;
@@ -1692,7 +1688,7 @@ a.messageAboutChoice {
         .bannersCatalog .leftBanner {
             width: 100%;
         }
-        /*Collapsed input and placeholder*/
+        /*Collapsed input and placeholder on the tablet and mobile Only open comments*/
         /*.search:-moz-placeholder {*/
         /*    visibility: hidden;*/
         /*}*/
@@ -2175,5 +2171,5 @@ a.messageAboutChoice {
             margin-right: 5%;
         }
     }
-
+/*-----------------------------------------------------*/
 
