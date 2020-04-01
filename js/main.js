@@ -15,7 +15,7 @@ MainObject.prototype.begin = function () { //Write a method inside the prototype
     new ProductOptions(document.querySelector('.listOptions'));//Comparison on the third page (Size and Color)
     new Switcher(document.querySelector('.tumbs'));//Switcher on the third page
     new Bag(document.querySelector('.addToBag'));//Adding on the bag third page
-    new GoToItem(document.querySelector('.rowArrivals'));//Not useful and not ending object
+    // new GoToItem(document.querySelector('.rowArrivals'));//Not useful and not ending object
     if (window.localStorage && window.sessionStorage) {
         this.innerStorage();//write and invoke a method innerStorage for our localstorage
     }
@@ -54,12 +54,12 @@ FilterCatalog.prototype = Object.create(MainObject.prototype);
 ProductOptions.prototype = Object.create(MainObject.prototype);
 Switcher.prototype = Object.create(MainObject.prototype);
 Bag.prototype = Object.create(MainObject.prototype);
-GoToItem.prototype = Object.create(MainObject.prototype);
+// GoToItem.prototype = Object.create(MainObject.prototype);
 Shop.prototype = Object.create(MainObject.prototype);
 
-window.addEventListener('resize', function(event){
+window.addEventListener('resize', function(event){//(2 page) One more time recreate an object CatalogBanner
     new CatalogBanner(document.querySelector('.extraOff'));
-});//One more time recreate an object CatalogBanner
+});
 
 function SearchField() { //Function constructor SearchField
     this.searchButton = document.querySelector('.searchButton');
@@ -77,7 +77,7 @@ SearchField.prototype.openSearch = function () {//Write a prototype for SearchFi
     document.querySelector('.searchForm').classList.toggle('display');
 };
 
-Gamburger.prototype.openMenu = function (e) {
+Gamburger.prototype.openMenu = function (e) {//For mobile resolution
     e.preventDefault();
 
     document.querySelector('.header').classList.toggle('openMenu');
@@ -110,11 +110,11 @@ function CatalogBanner (offer) {//Constructor for my block  which added a proper
     this.itemImg.style.cssText= 'margin-bottom:' + (this.offer.clientHeight + this.offer.clientHeight/4) + 'px;';
 }
 
-function GoToItem (items) {
-    if (!items) return;
-    this.items = items;
-    this.items.addEventListener('click', this.goToDetailItem.bind(this));
-}
+// function GoToItem (items) {
+//     if (!items) return;
+//     this.items = items;
+//     this.items.addEventListener('click', this.goToDetailItem.bind(this));
+// }
 
 FilterCatalog.prototype.openFilter = function () {
     this.desktopSelects.classList.toggle('mobileSelects');
@@ -192,7 +192,7 @@ FilterCatalog.prototype.filterStyles = function (method, value, option) {
 
 };
 
-FilterCatalog.prototype.mobileSelectedOptions = function () {
+FilterCatalog.prototype.mobileSelectedOptions = function () {//For filter (2 page) for old mobile resolution
     this.filterTablet = document.querySelector('.filterTablet');
 
     for (let j = 0; j < this.selectItems.length; j++) {
@@ -201,24 +201,24 @@ FilterCatalog.prototype.mobileSelectedOptions = function () {
     }
 };
 
-GoToItem.prototype.goToDetailItem = function (e) {//For blocks rowArrivals
-    let target = e && e.target || e.srcElement;
-
-    let item = target.closest('.arrivalItem').getAttribute('data-product');
-
-    if (!item) return;
-
-    document.location.href = 'item' + item + '.html';
-    return item;
-};
+// GoToItem.prototype.goToDetailItem = function (e) {//For blocks rowArrivals
+//     let target = e && e.target || e.srcElement;
+//
+//     let item = target.closest('.arrivalItem').getAttribute('data-product');
+//
+//     if (!item) return;
+//
+//     document.location.href = 'item' + item + '.html';
+//     return item;
+// };
 //Catalog.js second page
 
 // item-details-page.js third page
-function Bag (button) {//Cart for local storage
+function Bag (button) {//Constructor for Bag
     if (!button) return;
 
     this.buttonAdd = button;
-    this.cart =  (localStorage.cart) ? JSON.parse(localStorage.cart) : {};
+    this.cart =  (localStorage.cart) ? JSON.parse(localStorage.cart) : {};//Check if we have some values from previous sessions
     this.buttonAdd.addEventListener('click', this.addGoose.bind(this));
 }
 
@@ -230,7 +230,7 @@ function Switcher(thumbnail) {//Constructor for my switcher
     this.thumbnailBlock.addEventListener('click', this.doFullImg.bind(this));
 }
 
-function ProductOptions (list) {
+function ProductOptions (list) {//Construcror for buttons Size and Color
     if (!list) return;
 
     this.options = document.querySelector('.rowOptionsProduct ');
@@ -238,7 +238,7 @@ function ProductOptions (list) {
 }
 
 
-Switcher.prototype.doFullImg = function (e) {
+Switcher.prototype.doFullImg = function (e) {//Create full img
     let target = e && e.target || e.srcElement;
 
     if (!target.parentNode.querySelector('img')) return;
@@ -265,7 +265,7 @@ Bag.prototype.addGoose = function (e) {
     let price = 0;
 
     function getElements(select) {
-        return document.querySelectorAll(select).length
+        return document.querySelectorAll(select).length;
     }
 
     function removeActionClass() {

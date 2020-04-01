@@ -65,13 +65,4 @@
     setTimeout(function () { initCount(); }, 0);
 })();
 // ------------------------------------------------------------------
-// console.dir(MainObject);
-// console.dir(SearchField);
-// console.dir(Gamburger);
-// console.dir(CatalogBanner);
-// console.dir(FilterCatalog);
-// console.dir(ProductOptions);
-// console.dir(Switcher);
-// console.dir(Bag);
-// console.dir(GoToItem);
-// console.dir(Shop);
+
