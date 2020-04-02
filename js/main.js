@@ -279,6 +279,7 @@ Bag.prototype.addGoose = function (e) {
         document.querySelector('.chooseOptions').classList.remove('display');
         setTimeout(function () {
             document.querySelector('.addedGoose').classList.remove('display');
+            document.location.href = 'shopping-bag.html';
         },4000);
 
         this.addCart(e);
@@ -294,6 +295,7 @@ Bag.prototype.addGoose = function (e) {
         document.querySelector('.commonPrice').innerHTML =
             `£ ${localStorage.goodsPrice}<span class="countItems"> (${localStorage.goodsCounter})</span>`;
         document.querySelector('.addedGoose').classList.add('display');
+
     } else {
         document.querySelector('.chooseOptions').classList.add('display');
     }

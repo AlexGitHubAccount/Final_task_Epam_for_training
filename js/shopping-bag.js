@@ -13,7 +13,7 @@
         document.querySelector('.commonPrice').innerHTML =
             `£ ${localStorage.goodsCounter ? fullPrice.toFixed(2) : '0'}<span class="countItems"> (${localStorage.goodsCounter})</span>`;
         setTimeout(function () {
-            totalCost.innerHTML =  `${fullPrice ? fullPrice.toFixed(2) : '£ 0'}`;
+            totalCost.innerHTML = `${fullPrice ? fullPrice.toFixed(2) : '£ 0'}`;
         },0);
     }
 
@@ -41,7 +41,7 @@
         }
         if (data[rel]) data[rel].qw = parseInt(input.innerHTML);
         localStorage.cart = JSON.stringify(data);
-        // localStorage.goodsCounter = JSON.stringify(sumCount());
+        localStorage.goodsCounter = JSON.stringify(sumCount());
     }
 
     function initCount() {
@@ -50,17 +50,17 @@
             count[i].addEventListener('click', countChange);
         }
     }
-//     function sumCount(){
-//         let sum=0;
-// for (let obj in data){
-//     if(data.hasOwnProperty(obj)){
-//     if(data[obj].qw){
-//         sum = sum +data[obj].qw;
-//     }
-//     }
-// }
-//         return sum;
-//     }
+    function sumCount(){
+        let sum=0;
+for (let obj in data){
+    if(data.hasOwnProperty(obj)){
+    if(data[obj].qw){
+        sum = sum +data[obj].qw;
+    }
+    }
+}
+        return sum;
+    }
 
     setTimeout(function () { initCount(); }, 0);
 })();

@@ -2,11 +2,20 @@
 (function () {
     const itemProduct = document.getElementById("itemProduct");
 
+    const getOptionsList = (option, data) => {
+        const wrapper = document.querySelector(`[data-option=${data}]`);
+        for (let i = 0; i < option.length; i++) {
+            wrapper.insertAdjacentHTML('afterbegin',`<li>${option[i]}</li>`);
+        }
+    };
+
     const getCatalog = () => {
         const catalogArray = window.catalog;
         const id = itemProduct.getAttribute("data-id");
 
         let currentItem = catalogArray.filter(item => item.id === id);
+        getOptionsList(currentItem[0].colors,'color');
+        getOptionsList(currentItem[0].sizes,'size');
 
         return function () {
             document.getElementById("title").innerText = currentItem[0].title;
