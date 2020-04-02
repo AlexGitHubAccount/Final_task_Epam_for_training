@@ -79,8 +79,8 @@ SearchField.prototype.openSearch = function () {//Write a prototype for SearchFi
 
 Gamburger.prototype.openMenu = function (e) {//For mobile resolution
     e.preventDefault();
-
     document.querySelector('.header').classList.toggle('openMenu');
+    document.querySelector('body').classList.toggle('overflow');
     this.nav.classList.toggle('display');
 };
 // Common rules for my project

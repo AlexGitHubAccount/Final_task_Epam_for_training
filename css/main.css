@@ -379,6 +379,22 @@ header .display {
     content: 'X';
     color: #757575;
 }
+
+.overflow {
+    overflow: hidden;
+}
+
+.openMenu {
+    position: fixed;
+    background: #fff;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow-y: auto;
+    left: 0;
+    right: 0;
+}
+
 .openMenu .iconMenu {
     background-position: bottom center;
 }
